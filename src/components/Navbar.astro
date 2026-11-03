@@ -1,0 +1,460 @@
+---
+import { LANGUAGES } from '../i18n/translations';
+---
+
+<header class="sticky top-0 z-50 w-full bg-[#F5EFE1]/95 dark:bg-[#12100E]/95 backdrop-blur-md border-b-2 border-[#E5D3AF] dark:border-[#3A332C] transition-colors duration-300">
+  <nav
+    aria-label="Primary Navigation"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3"
+  >
+    <!-- Brand Logo -->
+    <a
+      href="/"
+      class="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] rounded-xl p-1 shrink-0"
+      aria-label="iLoveMP4 Home — Free MP4 Video & Audio Converter"
+    >
+      <span class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] shadow-md group-hover:scale-105 transition-transform duration-300 ease-smooth">
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M16 26.5C16 26.5 5 19.8 5 11.9C5 8.4 7.7 5.5 11.1 5.5C13.2 5.5 15 6.6 16 8.2C17 6.6 18.8 5.5 20.9 5.5C24.3 5.5 27 8.4 27 11.9C27 19.8 16 26.5 16 26.5Z"
+            fill="currentColor"
+          />
+          <path d="M13.8 11.2L19.8 14.8L13.8 18.4V11.2Z" fill="#790D16" />
+        </svg>
+      </span>
+      <span class="text-xl sm:text-2xl font-black tracking-tight text-[#12100E] dark:text-[#F5EFE1]">
+        iLove<span class="text-[#790D16] dark:text-[#A31621]">MP4</span>
+      </span>
+    </a>
+
+    <!-- Desktop Controls (lg and up) -->
+    <div class="hidden lg:flex items-center gap-2.5">
+      <!-- Language Selector -->
+      <div class="relative">
+        <button
+          id="lang-menu-btn"
+          type="button"
+          aria-label="Select Language"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          class="min-h-[40px] px-3.5 py-2 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white/90 dark:bg-[#1C1917] text-[#12100E] dark:text-[#F5EFE1] hover:border-[#790D16] dark:hover:border-[#A31621] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-200"
+        >
+          <svg
+            class="w-5 h-5 shrink-0 text-[#790D16] dark:text-[#AEC4D4]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+            />
+          </svg>
+          <span id="current-lang-label" data-i18n="nav_language">English</span>
+          <svg
+            class="w-4 h-4 opacity-75"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Language Dropdown Menu -->
+        <ul
+          id="lang-dropdown"
+          role="listbox"
+          aria-label="Supported Languages"
+          class="hidden absolute right-0 mt-2 w-60 rounded-2xl bg-white dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] shadow-2xl py-2 z-50"
+        >
+          {
+            LANGUAGES.map((lang) => (
+              <li role="option" aria-selected="false" data-lang-option={lang.code}>
+                <button
+                  type="button"
+                  data-lang-code={lang.code}
+                  data-lang-name={lang.label}
+                  class="w-full text-left px-4 py-2 text-sm font-semibold text-[#12100E] dark:text-[#F5EFE1] hover:bg-[#F5EFE1] dark:hover:bg-[#3A332C] flex items-center justify-between transition-colors"
+                >
+                  <span>{lang.label}</span>
+                  <span class="text-xs uppercase font-bold px-2 py-0.5 rounded bg-[#AEC4D4]/30 text-[#12100E] dark:text-[#AEC4D4]">
+                    {lang.code}
+                  </span>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Theme Toggle (Light / Dark) -->
+      <button
+        id="theme-toggle-btn"
+        type="button"
+        aria-label="Toggle Light or Dark Mode"
+        class="min-h-[40px] px-3.5 py-2 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white/90 dark:bg-[#1C1917] text-[#12100E] dark:text-[#F5EFE1] hover:border-[#790D16] dark:hover:border-[#A31621] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-200"
+      >
+        <svg
+          class="w-5 h-5 hidden dark:block text-[#E5D3AF]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+          />
+        </svg>
+        <svg
+          class="w-5 h-5 block dark:hidden text-[#790D16]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+          />
+        </svg>
+        <span data-i18n="nav_theme">Theme</span>
+      </button>
+
+      <!-- PWA Offline Installer Button -->
+      <button
+        id="pwa-install-btn"
+        type="button"
+        aria-label="Add to Home Screen — Install Offline App"
+        class="min-h-[40px] px-3.5 py-2 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-[#E5D3AF]/60 dark:bg-[#1C1917] text-[#12100E] dark:text-[#F5EFE1] hover:bg-[#E5D3AF] dark:hover:border-[#AEC4D4] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] flex items-center justify-center gap-2 font-bold text-sm transition-all duration-200"
+      >
+        <svg
+          class="w-5 h-5 shrink-0 text-[#790D16] dark:text-[#AEC4D4]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+          />
+        </svg>
+        <span data-i18n="nav_pwa">Add to Home Screen</span>
+      </button>
+
+      <!-- Support the Developer CTA -->
+      <a
+        href="https://kisharadilshan.gumroad.com/coffee"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Support the Developer"
+        class="group min-h-[40px] px-4 py-2 rounded-xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] hover:opacity-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] flex items-center justify-center gap-2 font-bold text-sm shadow-md transition-all duration-200"
+      >
+        <svg
+          class="w-5 h-5 shrink-0 text-[#F5EFE1] group-hover:scale-125 group-hover:animate-pulse transition-transform duration-200"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+          />
+        </svg>
+        <span data-i18n="nav_support">Support the Developer</span>
+      </a>
+    </div>
+
+    <!-- Mobile & Tablet Toggle Button (< 1024px) -->
+    <div class="flex lg:hidden items-center gap-2">
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Open Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-drawer"
+        class="min-w-[44px] min-h-[44px] p-2.5 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white/90 dark:bg-[#1C1917] text-[#12100E] dark:text-[#F5EFE1] hover:border-[#790D16] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4] flex items-center justify-center transition-all"
+      >
+        <!-- Hamburger Icon -->
+        <svg
+          id="menu-icon-open"
+          class="w-6 h-6 text-[#790D16] dark:text-[#F5EFE1]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <!-- Close (X) Icon -->
+        <svg
+          id="menu-icon-close"
+          class="w-6 h-6 hidden text-[#790D16] dark:text-[#F5EFE1]"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile & Tablet Collapsible Menu Drawer (< 1024px) -->
+  <div
+    id="mobile-nav-drawer"
+    class="hidden lg:hidden border-t-2 border-[#E5D3AF] dark:border-[#3A332C] bg-[#F5EFE1] dark:bg-[#1C1917] px-4 pt-3 pb-5 shadow-xl"
+  >
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <!-- Mobile Language Selector -->
+      <div class="flex flex-col gap-1">
+        <label for="mobile-lang-select" class="text-xs font-extrabold uppercase tracking-wider text-[#12100E]/70 dark:text-[#F5EFE1]/70" data-i18n="nav_language">
+          Language
+        </label>
+        <select
+          id="mobile-lang-select"
+          aria-label="Select Language"
+          class="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white dark:bg-[#12100E] text-[#12100E] dark:text-[#F5EFE1] font-bold text-sm focus:outline-none focus:border-[#790D16]"
+        >
+          {
+            LANGUAGES.map((lang) => (
+              <option value={lang.code}>{lang.label}</option>
+            ))
+          }
+        </select>
+      </div>
+
+      <!-- Mobile Theme Toggle -->
+      <div class="flex flex-col justify-end">
+        <button
+          id="mobile-theme-toggle-btn"
+          type="button"
+          class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white dark:bg-[#12100E] text-[#12100E] dark:text-[#F5EFE1] font-bold text-sm flex items-center justify-center gap-2.5 hover:border-[#790D16]"
+        >
+          <svg
+            class="w-5 h-5 hidden dark:block text-[#E5D3AF]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          </svg>
+          <svg
+            class="w-5 h-5 block dark:hidden text-[#790D16]"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+          </svg>
+          <span data-i18n="nav_theme">Theme</span>
+        </button>
+      </div>
+
+      <!-- Mobile PWA Install Button -->
+      <button
+        id="mobile-pwa-install-btn"
+        type="button"
+        class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border-2 border-[#E5D3AF] dark:border-[#3A332C] bg-[#E5D3AF]/70 dark:bg-[#12100E] text-[#12100E] dark:text-[#F5EFE1] font-bold text-sm flex items-center justify-center gap-2.5"
+      >
+        <svg class="w-5 h-5 text-[#790D16] dark:text-[#AEC4D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        <span data-i18n="nav_pwa">Add to Home Screen</span>
+      </button>
+
+      <!-- Mobile Support Developer CTA -->
+      <a
+        href="https://kisharadilshan.gumroad.com/coffee"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] font-bold text-sm flex items-center justify-center gap-2.5 shadow-md"
+      >
+        <svg class="w-5 h-5 text-[#F5EFE1]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+        </svg>
+        <span data-i18n="nav_support">Support the Developer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Accessible Fallback Modal for iOS / macOS Safari Add to Home Screen -->
+<div
+  id="pwa-install-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="pwa-modal-heading"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+>
+  <div class="max-w-md w-full bg-[#F5EFE1] dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] rounded-3xl p-6 sm:p-8 shadow-2xl">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-12 h-12 rounded-2xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] flex items-center justify-center shrink-0">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+        </svg>
+      </div>
+      <h2 id="pwa-modal-heading" class="text-xl font-extrabold text-[#12100E] dark:text-[#F5EFE1]" data-i18n="pwa_modal_title">
+        Install iLoveMP4 for 100% Offline Use
+      </h2>
+    </div>
+    <p class="text-base text-[#12100E]/90 dark:text-[#F5EFE1]/90 leading-relaxed mb-6" data-i18n="pwa_modal_desc">
+      In Safari or mobile browsers, tap the Share button and select "Add to Home Screen" (or use your browser's Install App icon in the address bar) to install iLoveMP4 as a standalone offline app.
+    </p>
+    <button
+      id="pwa-modal-close-btn"
+      type="button"
+      class="w-full py-3.5 px-6 rounded-xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] font-bold text-lg hover:opacity-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4]"
+      data-i18n="pwa_modal_close"
+    >
+      Got It
+    </button>
+  </div>
+</div>
+
+<script>
+  import { translations, type SupportedLang } from '../i18n/translations';
+
+  // Mobile Menu Drawer Toggle
+  const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  mobileToggleBtn?.addEventListener('click', () => {
+    const isHidden = mobileDrawer?.classList.toggle('hidden');
+    mobileToggleBtn.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+    menuIconOpen?.classList.toggle('hidden', !isHidden);
+    menuIconClose?.classList.toggle('hidden', Boolean(isHidden));
+  });
+
+  // Theme management (Desktop + Mobile)
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('ilovemp4_theme', isDark ? 'dark' : 'light');
+  }
+  document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
+  document.getElementById('mobile-theme-toggle-btn')?.addEventListener('click', toggleTheme);
+
+  // Language switcher management
+  const langBtn = document.getElementById('lang-menu-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const currentLangLabel = document.getElementById('current-lang-label');
+  const mobileLangSelect = document.getElementById('mobile-lang-select') as HTMLSelectElement | null;
+
+  function applyLanguage(lang: SupportedLang) {
+    const dict = translations[lang] || translations.en;
+    document.documentElement.lang = lang;
+    localStorage.setItem('ilovemp4_lang', lang);
+
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n') as keyof typeof dict;
+      if (key && dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+
+    const selectedBtn = document.querySelector<HTMLButtonElement>(`[data-lang-code="${lang}"]`);
+    if (selectedBtn && currentLangLabel) {
+      const label = selectedBtn.getAttribute('data-lang-name') || 'English';
+      currentLangLabel.textContent = label.split(' ')[0];
+    }
+
+    if (mobileLangSelect) {
+      mobileLangSelect.value = lang;
+    }
+
+    document.querySelectorAll('[data-lang-option]').forEach((li) => {
+      const code = li.getAttribute('data-lang-option');
+      li.setAttribute('aria-selected', code === lang ? 'true' : 'false');
+    });
+  }
+
+  const savedLang = (localStorage.getItem('ilovemp4_lang') as SupportedLang) || 'en';
+  if (savedLang && translations[savedLang]) {
+    applyLanguage(savedLang);
+  }
+
+  langBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isHidden = langDropdown?.classList.toggle('hidden');
+    langBtn.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-lang-code]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const code = btn.getAttribute('data-lang-code') as SupportedLang;
+      if (code) {
+        applyLanguage(code);
+        langDropdown?.classList.add('hidden');
+        langBtn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  mobileLangSelect?.addEventListener('change', () => {
+    const code = mobileLangSelect.value as SupportedLang;
+    if (code) applyLanguage(code);
+  });
+
+  document.addEventListener('click', () => {
+    langDropdown?.classList.add('hidden');
+    langBtn?.setAttribute('aria-expanded', 'false');
+  });
+
+  // PWA Install Prompt (Desktop + Mobile)
+  let deferredPrompt: any = null;
+  const pwaModal = document.getElementById('pwa-install-modal');
+  const pwaCloseBtn = document.getElementById('pwa-modal-close-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  async function triggerPwaInstall() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+    } else {
+      pwaModal?.classList.remove('hidden');
+    }
+  }
+
+  document.getElementById('pwa-install-btn')?.addEventListener('click', triggerPwaInstall);
+  document.getElementById('mobile-pwa-install-btn')?.addEventListener('click', triggerPwaInstall);
+
+  pwaCloseBtn?.addEventListener('click', () => {
+    pwaModal?.classList.add('hidden');
+  });
+
+  pwaModal?.addEventListener('click', (e) => {
+    if (e.target === pwaModal) {
+      pwaModal.classList.add('hidden');
+    }
+  });
+</script>

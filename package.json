@@ -1,0 +1,22 @@
+{
+  "name": "ilovemp4",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "100% Client-Side RAM Video & Audio Converter to MP4, MP3, GIF, WAV, WEBM, and MOV powered by FFmpeg.wasm",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
+    "astro": "^5.1.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

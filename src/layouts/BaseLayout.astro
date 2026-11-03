@@ -1,0 +1,228 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'iLoveMP4 — Free MP4 Converter & Video to MP4 / MP3 Online',
+  description = 'Free MP4 converter running 100% in browser RAM. Convert MOV to MP4, MP4 to MP3, MKV, AVI, HEVC, WEBM & GIF privately with FFmpeg.wasm and zero uploads.',
+} = Astro.props;
+
+const canonicalURL = 'https://ilovemp4.github.io/';
+
+const targetKeywords =
+  'converter to mp4, to mp4 converter, mp4 to mp4 converter, mp4 to mp3 converter, converter mp4 to mp3, mp3 to mp4 converter, mp4 converter free, free mp4 converter, video to mp4, video converter to mp4, mov to mp4, mov to mp4 converter, twitter to mp4 converter, pinterest to mp4 converter, x to mp4 converter, tiktok mp4 converter, mp4 tiktok converter, url to mp4 converter, link to mp4 converter, gif to mp4 converter, mp4 to gif, mp4 to wav converter, mts to mp4 converter, hevc to mp4 converter, dav to mp4 converter, mpeg to mp4 converter, mp4 to webm converter, avi to mp4 converter, mp4 to mp3 converter free online, mp3 to mp4 converter free, free video converter to mp4, mov to mp4 converter free';
+
+const jsonLdSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      '@id': 'https://ilovemp4.github.io/#webapp',
+      name: 'iLoveMP4 — Free MP4 Video & Audio Converter',
+      url: 'https://ilovemp4.github.io/',
+      description:
+        '100% client-side browser RAM video and audio converter powered by FFmpeg WebAssembly. Convert MOV, MKV, AVI, HEVC, WEBM, MTS, DAV, MPEG, GIF, MP3, and WAV to MP4 or MP3 with zero cloud uploads.',
+      applicationCategory: 'MultimediaApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires HTML5 and WebAssembly support',
+      inLanguage: ['en', 'es', 'pt', 'de', 'fr', 'ja', 'zh', 'ru'],
+      offers: {
+        '@type': 'Offer',
+        price: '0.00',
+        priceCurrency: 'USD',
+      },
+      featureList: [
+        '100% Client-Side Browser RAM Conversion via FFmpeg.wasm',
+        'Zero Cloud Uploads & Complete Local Privacy',
+        'MOV to MP4 Converter Free',
+        'MP4 to MP3 Converter Free Online (320kbps)',
+        'MP3 to MP4, GIF to MP4, MP4 to GIF, MP4 to WAV, MP4 to WEBM',
+        'HEVC, MTS, DAV, MPEG, MKV, and AVI to MP4 Converter',
+        'Offline-Ready Progressive Web App (PWA)',
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://ilovemp4.github.io/#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://ilovemp4.github.io/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Video Tools',
+          item: 'https://ilovemp4.github.io/#supported-formats',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Free MP4 Converter',
+          item: 'https://ilovemp4.github.io/#converter-engine-box',
+        },
+      ],
+    },
+    {
+      '@type': 'HowTo',
+      '@id': 'https://ilovemp4.github.io/#howto',
+      name: 'How to Convert Video or Audio to MP4 and MP3 in Browser RAM',
+      description:
+        'Convert any video, audio, or GIF file to MP4, MP3, WAV, WEBM, or GIF locally in your browser without uploading files to any server.',
+      totalTime: 'PT15S',
+      step: [
+        {
+          '@type': 'HowToStep',
+          position: 1,
+          name: 'Select Input & Output Format Preset',
+          text: 'Choose your desired conversion preset such as Convert to MP4, MP4 to MP3, Compress MP4, MP4 to GIF, or MOV/HEVC/AVI/MKV to MP4.',
+        },
+        {
+          '@type': 'HowToStep',
+          position: 2,
+          name: 'Drop Your Video or Audio File',
+          text: 'Drag and drop your MOV, MP4, MKV, AVI, HEVC, MTS, DAV, MPEG, GIF, MP3, or WAV file into the dropzone. Optionally adjust resolution, compression quality, or trim times.',
+        },
+        {
+          '@type': 'HowToStep',
+          position: 3,
+          name: 'Convert in Local RAM & Download Instantly',
+          text: 'Click Start Instant RAM Conversion. FFmpeg.wasm transcodes your file locally inside browser memory and provides a 1-click local download.',
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://ilovemp4.github.io/#faq',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Is iLoveMP4 really a 100% free MP4 converter with zero cloud uploads?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. iLoveMP4 executes FFmpeg WebAssembly (FFmpeg.wasm) directly inside your device RAM. Your videos and audio files never leave your computer or phone, ensuring total privacy and zero server upload delays.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I convert MOV to MP4 or HEVC/MKV/AVI to MP4 for free?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Simply select the "Convert to MP4" or "MOV/HEVC/AVI/MKV to MP4" preset at the top of the converter box, drop your video file, and click Start Instant RAM Conversion. iLoveMP4 transcodes Apple QuickTime MOV, HEVC, MKV, AVI, MTS, DAV, and MPEG files into universally compatible H.264 MP4 files.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I use iLoveMP4 as an MP4 to MP3 converter free online and offline?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes! Choose the "MP4 to MP3" tab to extract 320kbps studio-quality MP3 or lossless WAV audio from any MP4 video. You can also click "Add to Home Screen" in the navigation bar to install iLoveMP4 as an offline Progressive Web App (PWA).',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I optimize videos for TikTok, X (Twitter), and Pinterest MP4 formats?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Absolutely. Whether you have downloaded a clip or recorded a video for TikTok, X (Twitter), or Pinterest, iLoveMP4 converts and compresses it into standard H.264 MP4 with customizable 1080p/720p resolution and CRF compression.',
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={targetKeywords} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="iLoveMP4" />
+    <meta name="theme-color" content="#790D16" />
+
+    <!-- Canonical & Hreflang Tags -->
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href="https://ilovemp4.github.io/" />
+    <link rel="alternate" hreflang="es" href="https://ilovemp4.github.io/?lang=es" />
+    <link rel="alternate" hreflang="pt" href="https://ilovemp4.github.io/?lang=pt" />
+    <link rel="alternate" hreflang="de" href="https://ilovemp4.github.io/?lang=de" />
+    <link rel="alternate" hreflang="fr" href="https://ilovemp4.github.io/?lang=fr" />
+    <link rel="alternate" hreflang="ja" href="https://ilovemp4.github.io/?lang=ja" />
+    <link rel="alternate" hreflang="zh" href="https://ilovemp4.github.io/?lang=zh" />
+    <link rel="alternate" hreflang="ru" href="https://ilovemp4.github.io/?lang=ru" />
+    <link rel="alternate" hreflang="x-default" href="https://ilovemp4.github.io/" />
+
+    <!-- Icons & PWA Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://ilovemp4.github.io/og-preview.svg" />
+    <meta property="og:site_name" content="iLoveMP4" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+
+    <!-- Twitter Summary Large Image Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://ilovemp4.github.io/og-preview.svg" />
+
+    <!-- Early Theme Initialization (Prevents FOUC, Default Light #F5EFE1) -->
+    <script is:inline>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('ilovemp4_theme');
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Cross-Origin Isolation Service Worker for SharedArrayBuffer & Offline PWA on GitHub Pages -->
+    <script is:inline src="/coi-serviceworker.js"></script>
+
+    <!-- Ethical JSON-LD Structured Data (@graph: WebApplication, BreadcrumbList, HowTo, FAQPage - Zero Fake Ratings) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdSchema)} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBYLST5W0"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WGBYLST5W0');
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-[#F5EFE1] dark:bg-[#12100E] text-[#12100E] dark:text-[#F5EFE1] font-sans antialiased text-[18px] leading-relaxed selection:bg-[#790D16] selection:text-[#F5EFE1] transition-colors duration-300"
+  >
+    <slot />
+  </body>
+</html>

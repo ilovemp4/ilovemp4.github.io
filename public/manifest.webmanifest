@@ -1,0 +1,20 @@
+{
+  "name": "iLoveMP4 — Free 100% Local RAM Video & Audio Converter",
+  "short_name": "iLoveMP4",
+  "description": "Instant 100% browser RAM video and audio converter to MP4, MP3, GIF, WAV, WEBM & MOV. Zero cloud uploads, 100% offline capable.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5EFE1",
+  "theme_color": "#790D16",
+  "orientation": "any",
+  "categories": ["multimedia", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

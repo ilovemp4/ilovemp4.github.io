@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import ConverterBox from '../components/ConverterBox.astro';
+
+const formatCards = [
+  {
+    title: 'MOV to MP4 Converter Free',
+    badge: 'MOV → MP4',
+    from: 'MOV',
+    to: 'mp4',
+    preset: 'camera-to-mp4',
+    desc: 'Convert Apple iPhone, iPad, and macOS QuickTime MOV videos to universally playable H.264 MP4 files in browser RAM with zero quality loss.',
+  },
+  {
+    title: 'MP4 to MP3 Converter Free Online',
+    badge: 'MP4 → MP3',
+    from: 'MP4',
+    to: 'mp3',
+    preset: 'mp4-to-mp3',
+    desc: 'Extract crystal-clear 320kbps MP3 audio tracks from any MP4 video file locally in your browser without uploading files to external servers.',
+  },
+  {
+    title: 'MP3 to MP4 & MP4 to WAV Converter',
+    badge: 'MP3 ↔ MP4 / WAV',
+    from: 'MP3',
+    to: 'mp4',
+    preset: 'to-mp4',
+    desc: 'Package MP3 audio into shareable MP4 video containers for social platforms, or extract uncompressed lossless PCM WAV audio from MP4 clips.',
+  },
+  {
+    title: 'GIF to MP4 & MP4 to GIF Converter',
+    badge: 'GIF ↔ MP4',
+    from: 'MP4',
+    to: 'gif',
+    preset: 'mp4-to-gif',
+    desc: 'Turn animated GIFs into lightweight H.264 MP4 videos or convert MP4 video highlights into smooth looping GIFs with Lanczos scaling.',
+  },
+  {
+    title: 'HEVC, MTS, DAV, AVI & MPEG to MP4',
+    badge: 'RAW / CCTV → MP4',
+    from: 'HEVC',
+    to: 'mp4',
+    preset: 'camera-to-mp4',
+    desc: 'Transcode H.265/HEVC footage, Sony/Panasonic AVCHD MTS camcorder clips, DVR DAV security files, MKV, AVI, and MPEG into standard MP4.',
+  },
+  {
+    title: 'TikTok, X / Twitter & Pinterest MP4',
+    badge: 'Social MP4',
+    from: 'WEBM',
+    to: 'mp4',
+    preset: 'compress-mp4',
+    desc: 'Optimize, re-encode, or compress downloaded and recorded videos for TikTok MP4, X (Twitter) MP4, Pinterest MP4, and WebM workflows.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How does iLoveMP4 convert video to MP4 with zero cloud uploads?',
+    a: 'iLoveMP4 is powered by FFmpeg WebAssembly (@ffmpeg/ffmpeg) and Web Workers with SharedArrayBuffer. When you select a file, our engine processes the video or audio stream 100% inside your device’s local RAM. Nothing is ever uploaded to any cloud server.',
+  },
+  {
+    q: 'Is this free MP4 converter truly unlimited with no watermarks?',
+    a: 'Yes! Because all CPU and RAM work happens on your own device rather than expensive cloud servers, iLoveMP4 is 100% free forever, adds zero watermarks, and imposes no artificial daily conversion caps.',
+  },
+  {
+    q: 'Which video and audio formats can I convert to MP4 or MP3?',
+    a: 'You can convert MOV to MP4, MKV to MP4, AVI to MP4, WEBM to MP4, HEVC to MP4, MTS to MP4, DAV to MP4, MPEG/MPG to MP4, FLV to MP4, GIF to MP4, and MP3 to MP4. You can also convert MP4 to MP3 (320kbps), MP4 to GIF, MP4 to WAV, MP4 to WEBM, and MP4 to MOV.',
+  },
+  {
+    q: 'Can I convert TikTok, X (Twitter), and Pinterest videos to MP4?',
+    a: 'Yes. If you have a saved video file from TikTok, X (Twitter), or Pinterest in WEBM, MOV, or HEVC format, drop it into iLoveMP4 to convert or compress it into a universally compatible H.264 MP4 file ready for editing or sharing.',
+  },
+  {
+    q: 'Does iLoveMP4 work offline without an internet connection?',
+    a: 'Yes! Click the "Add to Home Screen" button in the top navigation bar to install iLoveMP4 as an offline Progressive Web App (PWA). Our Service Worker caches the entire interface and WebAssembly core so you can convert files completely offline.',
+  },
+];
+---
+
+<BaseLayout>
+  <!-- Top Sticky Minimalist Navigation -->
+  <Navbar />
+
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-16">
+    <!-- Above-the-Fold Hero Section: Fits the Full Main Converter Box on Initial Load -->
+    <section
+      aria-labelledby="hero-main-heading"
+      class="min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center text-center pb-6"
+    >
+      <h1
+        id="hero-main-heading"
+        class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#12100E] dark:text-[#F5EFE1] leading-tight max-w-4xl mx-auto mb-1.5"
+        data-i18n="hero_title"
+      >
+        Free Video & Audio Converter to MP4, MP3 & GIF
+      </h1>
+
+      <p
+        class="text-xs sm:text-sm md:text-base text-[#12100E]/80 dark:text-[#F5EFE1]/80 max-w-3xl mx-auto mb-4 font-medium"
+        data-i18n="hero_subtitle"
+      >
+        Convert MOV, MKV, AVI, HEVC, WEBM, MTS, DAV, MPEG, GIF, MP3, and WAV instantly in your browser. 100% private with no file size limits.
+      </p>
+
+      <!-- Main Elevated Converter Box Div (Fits 100% in Hero Viewport) -->
+      <ConverterBox />
+    </section>
+
+    <!-- Visible Semantic Breadcrumbs (Synced 1:1 with BreadcrumbList JSON-LD) -->
+    <nav aria-label="Breadcrumb" class="pt-6 pb-4 border-t-2 border-[#E5D3AF] dark:border-[#3A332C]">
+      <ol class="flex flex-wrap items-center gap-2 text-sm font-bold text-[#12100E]/75 dark:text-[#F5EFE1]/75">
+        <li>
+          <a
+            href="https://ilovemp4.github.io/"
+            class="hover:text-[#790D16] dark:hover:text-[#AEC4D4] underline-offset-4 hover:underline"
+            data-i18n="breadcrumb_home"
+          >
+            Home
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-[#790D16] dark:text-[#AEC4D4]">/</li>
+        <li>
+          <a
+            href="#supported-formats"
+            class="hover:text-[#790D16] dark:hover:text-[#AEC4D4] underline-offset-4 hover:underline"
+            data-i18n="breadcrumb_tools"
+          >
+            Video Tools
+          </a>
+        </li>
+        <li aria-hidden="true" class="text-[#790D16] dark:text-[#AEC4D4]">/</li>
+        <li aria-current="page" class="text-[#790D16] dark:text-[#AEC4D4]" data-i18n="breadcrumb_current">
+          Free MP4 Converter
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Below-the-Fold Section 1: Supported Format Conversion Grid -->
+    <section
+      id="supported-formats"
+      aria-labelledby="formats-grid-heading"
+      class="py-10"
+    >
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2
+          id="formats-grid-heading"
+          class="text-3xl sm:text-4xl font-black tracking-tight text-[#12100E] dark:text-[#F5EFE1] mb-3"
+          data-i18n="section_formats_title"
+        >
+          Supported Format Conversions & Social Video Presets
+        </h2>
+        <p
+          class="text-lg text-[#12100E]/80 dark:text-[#F5EFE1]/80 font-medium"
+          data-i18n="section_formats_subtitle"
+        >
+          Click any card below to pre-configure the converter above for your exact video or audio workflow.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          formatCards.map((card) => (
+            <article class="group bg-white/90 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] hover:border-[#790D16] dark:hover:border-[#A31621] rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ease-smooth flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#AEC4D4]/40 dark:bg-[#AEC4D4]/20 text-[#12100E] dark:text-[#AEC4D4]">
+                    {card.badge}
+                  </span>
+                  <span class="w-9 h-9 rounded-xl bg-[#F5EFE1] dark:bg-[#12100E] text-[#790D16] dark:text-[#A31621] flex items-center justify-center font-bold group-hover:bg-[#790D16] group-hover:text-[#F5EFE1] transition-colors">
+                    →
+                  </span>
+                </div>
+                <h3 class="text-xl font-extrabold text-[#12100E] dark:text-[#F5EFE1] mb-2">
+                  {card.title}
+                </h3>
+                <p class="text-base text-[#12100E]/80 dark:text-[#F5EFE1]/80 mb-5 leading-relaxed">
+                  {card.desc}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onclick={`window.selectConverterPreset('${card.from}', '${card.to}', '${card.preset}')`}
+                class="w-full py-3 px-4 rounded-xl bg-[#F5EFE1] dark:bg-[#12100E] hover:bg-[#790D16] dark:hover:bg-[#A31621] text-[#12100E] dark:text-[#F5EFE1] hover:text-[#F5EFE1] font-bold text-base border border-[#E5D3AF] dark:border-[#3A332C] transition-colors duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4]"
+              >
+                Use {card.badge} Preset
+              </button>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Below-the-Fold Section 2: 3-Step How It Works Guide -->
+    <section
+      id="how-it-works"
+      aria-labelledby="howto-heading"
+      class="py-12 border-t-2 border-[#E5D3AF] dark:border-[#3A332C]"
+    >
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2
+          id="howto-heading"
+          class="text-3xl sm:text-4xl font-black tracking-tight text-[#12100E] dark:text-[#F5EFE1] mb-3"
+          data-i18n="section_howto_title"
+        >
+          How to Convert Videos to MP4 or MP3 in 3 Instant Steps
+        </h2>
+        <p class="text-lg text-[#12100E]/80 dark:text-[#F5EFE1]/80 font-medium">
+          Zero account registration, zero cloud queues, and 100% hardware-accelerated browser RAM execution.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/90 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] rounded-3xl p-7 shadow-md">
+          <div class="w-14 h-14 rounded-2xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] flex items-center justify-center font-black text-2xl mb-5 shadow-md">
+            1
+          </div>
+          <h3 class="text-xl font-extrabold text-[#12100E] dark:text-[#F5EFE1] mb-2">
+            Pick Your Format Preset
+          </h3>
+          <p class="text-base text-[#12100E]/80 dark:text-[#F5EFE1]/80 leading-relaxed">
+            Choose from our quick presets—such as <strong>Convert to MP4</strong>, <strong>MP4 to MP3 Converter</strong>, <strong>MOV to MP4</strong>, or <strong>MP4 to GIF</strong>—or pick custom input and output containers.
+          </p>
+        </div>
+
+        <div class="bg-white/90 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] rounded-3xl p-7 shadow-md">
+          <div class="w-14 h-14 rounded-2xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] flex items-center justify-center font-black text-2xl mb-5 shadow-md">
+            2
+          </div>
+          <h3 class="text-xl font-extrabold text-[#12100E] dark:text-[#F5EFE1] mb-2">
+            Drop Video or Audio into RAM
+          </h3>
+          <p class="text-base text-[#12100E]/80 dark:text-[#F5EFE1]/80 leading-relaxed">
+            Drag your MOV, MKV, AVI, HEVC, MTS, DAV, MPEG, WEBM, GIF, MP3, or WAV file into the dropzone. Customize 1080p/720p scaling, CRF compression, or trim timestamps.
+          </p>
+        </div>
+
+        <div class="bg-white/90 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] rounded-3xl p-7 shadow-md">
+          <div class="w-14 h-14 rounded-2xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] flex items-center justify-center font-black text-2xl mb-5 shadow-md">
+            3
+          </div>
+          <h3 class="text-xl font-extrabold text-[#12100E] dark:text-[#F5EFE1] mb-2">
+            Instant Local Download
+          </h3>
+          <p class="text-base text-[#12100E]/80 dark:text-[#F5EFE1]/80 leading-relaxed">
+            FFmpeg WebAssembly converts your media directly inside your browser’s memory and provides an instant one-click download to your device.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Below-the-Fold Section 3: Technical Privacy & Architecture Callout Aside -->
+    <aside
+      aria-label="Zero-Upload RAM Privacy Architecture"
+      class="my-8 p-8 rounded-3xl bg-[#E5D3AF]/45 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] flex flex-col lg:flex-row items-center justify-between gap-6"
+    >
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-black text-[#12100E] dark:text-[#F5EFE1] mb-2">
+          Why Local Browser RAM Beats Traditional Online Video Converters
+        </h2>
+        <p class="text-base text-[#12100E]/85 dark:text-[#F5EFE1]/85 leading-relaxed">
+          Legacy cloud converters force you to upload gigabytes of personal videos to remote servers, wait in slow queues, and risk data leaks. <strong>iLoveMP4</strong> runs a full multi-threaded WebAssembly build of <code>FFmpeg</code> inside your browser using <code>SharedArrayBuffer</code> and Cross-Origin Isolation—delivering native desktop speed with 100% local privacy.
+        </p>
+      </div>
+      <a
+        href="#converter-engine-box"
+        class="shrink-0 px-7 py-4 rounded-2xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] font-extrabold text-lg shadow-lg hover:opacity-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4]"
+      >
+        Convert a File Now ↑
+      </a>
+    </aside>
+
+    <!-- Below-the-Fold Section 4: Comprehensive FAQ Accordion -->
+    <section
+      id="faq"
+      aria-labelledby="faq-section-heading"
+      class="py-12 border-t-2 border-[#E5D3AF] dark:border-[#3A332C]"
+    >
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2
+          id="faq-section-heading"
+          class="text-3xl sm:text-4xl font-black tracking-tight text-[#12100E] dark:text-[#F5EFE1] mb-3"
+          data-i18n="section_faq_title"
+        >
+          Frequently Asked Questions (FAQ)
+        </h2>
+        <p class="text-lg text-[#12100E]/80 dark:text-[#F5EFE1]/80 font-medium">
+          Everything you need to know about free MP4 conversion, supported codecs, and offline PWA mode.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-4">
+        {
+          faqs.map((item, idx) => (
+            <details
+              class="group bg-white/90 dark:bg-[#1C1917] border-2 border-[#E5D3AF] dark:border-[#3A332C] rounded-2xl overflow-hidden shadow-sm"
+              open={idx === 0}
+            >
+              <summary class="px-6 py-5 cursor-pointer font-extrabold text-lg sm:text-xl text-[#12100E] dark:text-[#F5EFE1] flex items-center justify-between gap-4 select-none focus:outline-none focus-visible:ring-4 focus-visible:ring-[#AEC4D4]">
+                <span>{item.q}</span>
+                <span class="w-8 h-8 rounded-xl bg-[#F5EFE1] dark:bg-[#12100E] text-[#790D16] dark:text-[#AEC4D4] flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200">
+                  ▼
+                </span>
+              </summary>
+              <div class="px-6 pb-6 pt-2 text-base sm:text-lg text-[#12100E]/85 dark:text-[#F5EFE1]/85 leading-relaxed border-t border-[#E5D3AF]/60 dark:border-[#3A332C]">
+                {item.a}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <!-- Semantic Footer -->
+  <footer class="border-t-2 border-[#E5D3AF] dark:border-[#3A332C] bg-white/60 dark:bg-[#1C1917] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-[#790D16] dark:bg-[#A31621] text-[#F5EFE1] flex items-center justify-center font-black">
+          ♥
+        </span>
+        <div>
+          <p class="font-black text-lg text-[#12100E] dark:text-[#F5EFE1]">
+            iLoveMP4 — Free In-Browser Video & Audio Converter
+          </p>
+          <p class="text-sm text-[#12100E]/70 dark:text-[#F5EFE1]/70">
+            © {new Date().getFullYear()} iLoveMP4 • Released under the MIT License • 100% Client-Side RAM
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4 text-sm font-bold">
+        <a href="#converter-engine-box" class="hover:text-[#790D16] dark:hover:text-[#AEC4D4]">
+          MP4 Converter
+        </a>
+        <a href="#supported-formats" class="hover:text-[#790D16] dark:hover:text-[#AEC4D4]">
+          MOV to MP4
+        </a>
+        <a href="#supported-formats" class="hover:text-[#790D16] dark:hover:text-[#AEC4D4]">
+          MP4 to MP3
+        </a>
+        <a href="#faq" class="hover:text-[#790D16] dark:hover:text-[#AEC4D4]">
+          FAQ
+        </a>
+        <a
+          href="https://kisharadilshan.gumroad.com/coffee"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#790D16] dark:text-[#AEC4D4] hover:underline"
+        >
+          Support the Developer ♥
+        </a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
