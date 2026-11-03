@@ -1,119 +1,187 @@
-# 🎬 iLoveMP4 — 100% Client-Side Universal MP4 & Audio Converter
+<div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live_App-ilovemp4.github.io-790D16?style=for-the-badge)](https://ilovemp4.github.io/)
+# 🎬 iLoveMP4
+
+### **The 100% Client-Side Universal MP4, Audio & GIF Converter**
+
+*Zero Cloud Uploads • Zero File-Size Paywalls • 100% Offline-Ready PWA • Powered by WebAssembly*
+
+[![Live Website](https://img.shields.io/badge/Live_Application-ilovemp4.github.io-790D16?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ilovemp4.github.io/)
 [![Astro 5.x](https://img.shields.io/badge/Framework-Astro_5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
-[![FFmpeg.wasm](https://img.shields.io/badge/Engine-FFmpeg.wasm-007808?style=for-the-badge)](https://ffmpegwasm.netlify.app/)
+[![FFmpeg.wasm](https://img.shields.io/badge/Core_Engine-FFmpeg.wasm-007808?style=for-the-badge&logo=webassembly&logoColor=white)](https://ffmpegwasm.netlify.app/)
+[![Tailwind CSS](https://img.shields.io/badge/UI_System-Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-E5D3AF?style=for-the-badge&labelColor=12100E)](./LICENSE)
 [![Support the Developer](https://img.shields.io/badge/Support_the_Developer-Buy_Me_a_Coffee-790D16?style=for-the-badge&logo=gumroad&logoColor=white)](https://kisharadilshan.gumroad.com/coffee)
 
-**iLoveMP4** ([https://ilovemp4.github.io/](https://ilovemp4.github.io/)) is an ultra-minimal, privacy-first web application that converts videos, audio tracks, and animated GIFs **100% locally inside your browser's RAM**.
+[**Launch Web App**](https://ilovemp4.github.io/) · [**Supported Formats**](#-supported-format-matrix) · [**Architecture**](#️-system-architecture) · [**Local Setup**](#-quick-start--local-development) · [**Support the Developer**](#-support-the-developer)
 
-Powered by Astro Islands and WebAssembly (`FFmpeg.wasm`), your files never leave your device—**zero cloud uploads, zero file-size paywalls, and full offline capability**.
-
----
-
-## ✨ Key Features
-
-- **🔒 100% Local RAM Processing:** Zero server uploads. Complete privacy for sensitive personal or commercial media files.
-- **⚡ Instant Hero Utility:** Clean, oversized UI inside an interactive converter box—drop a file and convert in 3 clicks with smooth hardware-accelerated animations.
-- **🌍 8-Language Localization:** Full native UI support for **English (`en`), Español (`es`), Português (`pt`), Deutsch (`de`), Français (`fr`), 日本語 (`ja`), 简体中文 (`zh`), and Русский (`ru`)**.
-- **🌓 Adaptive Light & Dark Mode:** Crafted with a warm editorial palette (`#790D16` Crimson Ruby, `#E5D3AF` Warm Sand, `#F5EFE1` Soft Alabaster, and `#AEC4D4` Steel Blue) plus a WCAG AAA high-contrast dark mode (`#12100E`).
-- **📲 Offline-Ready PWA ("Add to Home Screen"):** Installable on Desktop, iOS, and Android for 100% offline video and audio conversion.
-- **📱 Responsive Icon-First Mobile Navbar:** Automatically adapts to mobile and tablet viewports (`< 1024px`) using oversized, accessible `44x44px` touch-target icons.
-- **🔄 Universal Format Engine:**
-  - **Video to MP4:** `MOV`, `MKV`, `AVI`, `WEBM`, `HEVC (H.265)`, `MTS`, `DAV`, `MPEG`, `MPG`, and `FLV` to `MP4 (H.264)`.
-  - **Audio Extraction & Conversion:** `MP4 to MP3` (up to 320kbps studio master), `MP4 to WAV` (lossless PCM), and `MP3 to MP4`.
-  - **Social & GIF Presets:** `GIF to MP4`, `MP4 to GIF`, and optimized MP4 presets for **TikTok**, **X (Twitter)**, and **Pinterest**.
+</div>
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Overview
 
-| Layer | Technology |
+**iLoveMP4** ([https://ilovemp4.github.io/](https://ilovemp4.github.io/)) is an ultra-minimal, privacy-first web application engineered to transcode video files, extract studio-grade audio tracks, and generate animated GIFs **100% locally inside the user's browser**.
+
+Unlike traditional cloud converters that upload sensitive personal or commercial videos to remote servers, **iLoveMP4** runs a compiled WebAssembly build of **FFmpeg (`@ffmpeg/ffmpeg`)** directly on your device using Web Workers and `SharedArrayBuffer`. Your media files **never leave your computer or phone**.
+
+---
+
+## ✨ Core Highlights
+
+| Feature | Description |
 | :--- | :--- |
-| **Framework** | [Astro 5.x](https://astro.build/) (Static Islands Architecture, 100% Static Output) |
-| **Media Engine** | [FFmpeg.wasm](https://ffmpegwasm.netlify.app/) (`@ffmpeg/ffmpeg` & `@ffmpeg/util`) + Web Workers |
-| **Cross-Origin Isolation** | `coi-serviceworker.js` (Enables `SharedArrayBuffer` via COOP/COEP headers on GitHub Pages) |
-| **Styling** | Tailwind CSS + Hardware-Accelerated Cubic-Bezier CSS/SVG Animations |
-| **Offline Support** | Service Worker Cache API (`sw.js`) + Standalone Web App Manifest (`manifest.webmanifest`) |
-| **Analytics & SEO** | Google Analytics 4 (`G-WGBYLST5W0`), Ethical JSON-LD `@graph` Schema, Automated Sitemap & `hreflang` |
+| 🔒 **100% Local Privacy** | Zero server uploads and zero cloud queues. Every byte of video and audio is processed strictly on your own device. |
+| ⚡ **Single-Screen Hero Utility** | Designed so the entire interactive conversion workspace loads above the fold. Drop a file, click **Convert**, and download immediately. |
+| 🎯 **Smart Auto-Hiding Dropzone** | Once a file is selected, the upload dropzone automatically collapses into a focused conversion control bar for a distraction-free workflow. |
+| 🌍 **8-Language Native i18n** | Instant client-side localization with `localStorage` persistence for **English, Español, Português, Deutsch, Français, 日本語, 简体中文, and Русский**. |
+| 🌓 **Editorial Light & Dark Themes** | Built around a warm crimson & sand editorial palette (`#790D16`, `#E5D3AF`, `#F5EFE1`, `#AEC4D4`) paired with a WCAG AAA high-contrast dark mode (`#12100E`). |
+| 📲 **100% Offline-Ready PWA** | One-click **Add to Home Screen** installation for Desktop, iOS, and Android backed by full Service Worker asset caching. |
+| 📱 **Responsive Mobile Drawer** | Automatically collapses navigation controls into an accessible toggle menu on mobile and tablet viewports (`< 1024px`). |
 
 ---
 
-## 🎨 Color Palette Specification
+## 🔄 Supported Format Matrix
 
-| Role | Hex Code (Light) | Hex Code (Dark) | Usage |
-| :--- | :--- | :--- | :--- |
-| **Crimson Ruby** | `#790D16` | `#A31621` | Primary CTAs, Active States, Progress Bars, Brand Heart Icon |
-| **Warm Sand** | `#E5D3AF` | `#3A332C` | Converter Box Borders, Dropzone Accents, Secondary Pills |
-| **Soft Alabaster** | `#F5EFE1` | `#12100E` | Clean Minimal Canvas Background |
-| **Elevated Surface** | `#FFFFFF` | `#1C1917` | Hero Converter Box Div & Format Preset Cards |
-| **Steel Blue** | `#AEC4D4` | `#AEC4D4` | Format Badges, Focus Rings, Technical Status Indicators |
+### 1. Input Formats (`Convert From`)
+`MP4` • `MOV` • `MKV` • `AVI` • `WEBM` • `HEVC (H.265)` • `MTS` • `DAV` • `MPEG` • `MPG` • `FLV` • `GIF` • `MP3` • `WAV` • `M4A`
+
+### 2. Output Formats (`Convert To`)
+
+| Output Container | Codec / Specification | Typical Use Case |
+| :--- | :--- | :--- |
+| **`MP4`** | `H.264 (libx264)` + `AAC` | Universal playback across Windows, macOS, iOS, Android, Smart TVs & Web |
+| **`MP3`** | `libmp3lame` (Up to `320 kbps`) | High-fidelity audio extraction from video lectures, music videos & podcasts |
+| **`GIF`** | Animated Loop (`Lanczos` scaling) | Crisp animated loops for documentation, messaging & social media |
+| **`WAV`** | `pcm_s16le` (Uncompressed Lossless) | Studio-grade lossless audio editing in DAWs & NLE video editors |
+| **`WEBM`** | `VP9 / libvpx` + `libvorbis` | Lightweight HTML5 web video embedding |
+| **`MOV`** | Apple QuickTime Container | Final Cut Pro & macOS/iOS native production workflows |
+
+### 3. Pro Encoding Controls
+- **Resolution Scaling:** `Original Source`, `1080p Full HD (1920×1080)`, `720p HD (1280×720)`, `480p Compact (854×480)`
+- **Compression Quality (CRF):** `High Studio Quality (CRF 18)`, `Balanced (CRF 23)`, `Maximum Compression (CRF 28)`
+- **Audio Bitrate:** `320 kbps (Studio Master)`, `192 kbps (High)`, `128 kbps (Standard)`
+- **Precision Clip Trimming:** Custom `Start Time (HH:MM:SS)` and `End Time (HH:MM:SS)`
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## 🏗️ System Architecture
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/ilovemp4/ilovemp4.github.io.git
-cd ilovemp4.github.io
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the local development server (with COOP/COEP headers enabled)
-npm run dev
-
-# 4. Build static production bundle into ./dist
-npm run build
-
-# 5. Preview the production build locally
-npm run preview
+```mermaid
+flowchart LR
+    A["User Selects Video / Audio File"] --> B["Browser File API (Local Memory)"]
+    B --> C["coi-serviceworker.js (COOP / COEP Isolation)"]
+    C --> D["FFmpeg.wasm Web Worker"]
+    D --> E["Transcode / Trim / Compress Locally"]
+    E --> F["Instant Local Blob Download"]
 ```
 
+### Tech Stack Breakdown
+
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Static Framework** | [Astro 5.x](https://astro.build/) | Zero-bloat static HTML generation with interactive Islands Architecture |
+| **Transcoding Engine** | [`@ffmpeg/ffmpeg`](https://www.npmjs.com/package/@ffmpeg/ffmpeg) & [`@ffmpeg/util`](https://www.npmjs.com/package/@ffmpeg/util) | In-browser WebAssembly video & audio transcoding |
+| **Header Isolation** | `coi-serviceworker.js` | Injects `Cross-Origin-Opener-Policy: same-origin` & `Cross-Origin-Embedder-Policy: require-corp` on GitHub Pages |
+| **Design & Styling** | [Tailwind CSS](https://tailwindcss.com/) | Responsive layout, dark mode tokens, and hardware-accelerated transitions |
+| **Offline PWA** | `sw.js` + `manifest.webmanifest` | Caches application shell and assets for standalone offline execution |
+| **Technical SEO** | `@astrojs/sitemap` + JSON-LD `@graph` | Automated `sitemap-index.xml`, `hreflang` tags, and ethical Schema.org structured data |
+
 ---
 
-## 📂 Repository Architecture
+## 🎨 Design System & Color Tokens
+
+| Token Role | Light Mode Hex | Dark Mode Hex | UI Application |
+| :--- | :--- | :--- | :--- |
+| **Crimson Ruby** | `#790D16` | `#A31621` | Primary CTAs, Active Format Presets, Progress Bar, Brand Heart Logo |
+| **Warm Sand** | `#E5D3AF` | `#3A332C` | Elevated Card Borders, Dropzone Dashed Borders, Secondary Accents |
+| **Soft Alabaster** | `#F5EFE1` | `#12100E` | Primary Page Canvas Background |
+| **Surface Card** | `#FFFFFF` | `#1C1917` | Main Converter Box Container & Format Preset Cards |
+| **Steel Blue** | `#AEC4D4` | `#AEC4D4` | Informational Format Badges, Keyboard Focus Rings, Status Accents |
+
+---
+
+## 📂 Project Structure
 
 ```text
 ilovemp4.github.io/
 ├── .github/workflows/
 │   └── deploy.yml              # Automated GitHub Actions CI/CD to GitHub Pages (Node 22)
 ├── public/
-│   ├── .nojekyll               # Bypass Jekyll processing on GitHub Pages
-│   ├── coi-serviceworker.js    # Injects COOP/COEP headers & caches assets for offline PWA
-│   ├── sw.js                   # Progressive Web App offline Service Worker
-│   ├── favicon.svg             # Brand Heart-Play vector icon (#790D16)
-│   ├── og-preview.svg          # High-contrast Open Graph social card (1200x630)
-│   ├── manifest.webmanifest    # Installable PWA configuration
+│   ├── .nojekyll               # Prevents Jekyll processing on GitHub Pages
+│   ├── coi-serviceworker.js    # Enables SharedArrayBuffer via COOP/COEP + Offline Cache
+│   ├── sw.js                   # Progressive Web App Service Worker entrypoint
+│   ├── favicon.svg             # Crisp vector brand icon (#790D16)
+│   ├── og-preview.svg          # 1200x630 Open Graph social preview card
+│   ├── manifest.webmanifest    # Standalone PWA manifest specification
 │   └── robots.txt              # Search crawler directives + Sitemap reference
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.astro        # Responsive navbar (8-lang i18n, Theme, PWA, Support CTA)
-│   │   └── ConverterBox.astro  # Above-the-fold FFmpeg.wasm local RAM converter engine
+│   │   ├── Navbar.astro        # Sticky header + Mobile/Tablet toggle drawer + 8-lang switcher
+│   │   └── ConverterBox.astro  # Above-the-fold FFmpeg.wasm converter + Auto-hiding dropzone
 │   ├── i18n/
-│   │   └── translations.ts     # 8-language UI translation dictionary
+│   │   └── translations.ts     # Complete 8-language translation dictionary
 │   ├── layouts/
-│   │   └── BaseLayout.astro    # SEO meta, Gtag (G-WGBYLST5W0), hreflang & JSON-LD @graph
+│   │   └── BaseLayout.astro    # Head metadata, GA4 (G-WGBYLST5W0), hreflang & JSON-LD @graph
 │   └── pages/
 │       └── index.astro         # Semantic landing page, Breadcrumbs, Format Grid, HowTo & FAQ
-├── astro.config.mjs            # Astro 5.x static configuration + Sitemap + Tailwind
-├── tailwind.config.mjs         # Custom Crimson & Warm Sand design tokens
+├── astro.config.mjs            # Astro 5.x static configuration + Sitemap + Vite COOP/COEP headers
+├── tailwind.config.mjs         # Custom Crimson & Warm Sand theme palette
+├── tsconfig.json               # Strict TypeScript configuration
 ├── LICENSE                     # MIT License
-└── README.md                   # Project documentation
+└── README.md                   # Executive repository documentation
 ```
+
+---
+
+## 🚀 Quick Start & Local Development
+
+### Prerequisites
+- **Node.js** `>= 20.x` (Node 22 LTS recommended)
+- **npm** `>= 10.x`
+
+### Installation & Commands
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/ilovemp4/ilovemp4.github.io.git
+cd ilovemp4.github.io
+
+# 2. Install project dependencies
+npm install
+
+# 3. Start local development server at http://localhost:4321
+npm run dev
+
+# 4. Generate production static build in ./dist
+npm run build
+
+# 5. Preview production build locally
+npm run preview
+```
+
+---
+
+## 🔍 SEO, Accessibility & Privacy Compliance
+
+- **100% Ethical Structured Data:** Implements a validated JSON-LD `@graph` (`WebApplication`, `BreadcrumbList`, `HowTo`, and `FAQPage`) strictly omitting fake `AggregateRating` snippets in full compliance with Google Search Central guidelines.
+- **International SEO (`hreflang`):** Includes self-referencing canonical URLs, alternate language links (`en`, `es`, `pt`, `de`, `fr`, `ja`, `zh`, `ru`, `x-default`), and an automatically generated `sitemap-index.xml`.
+- **WCAG AAA Accessibility:** Full keyboard navigation (`tabindex="0"` dropzone), explicit `aria-label` attributes on all interactive controls, and live `role="progressbar"` / `aria-live="polite"` status announcements.
 
 ---
 
 ## 💖 Support the Developer
 
-Every tip helps keep **iLoveMP4** 100% free, ad-free, and privacy-focused!
+**iLoveMP4** is built and maintained as a 100% free, open-source utility with zero paywalls or intrusive ads. If this tool saves you time, consider buying the developer a coffee:
 
-👉 **[Support the Developer](https://kisharadilshan.gumroad.com/coffee)**
+<div align="center">
+
+[![Support the Developer](https://img.shields.io/badge/☕_Support_the_Developer-kisharadilshan.gumroad.com%2Fcoffee-790D16?style=for-the-badge)](https://kisharadilshan.gumroad.com/coffee)
+
+</div>
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**. See [LICENSE](./LICENSE) for full details.
+Distributed under the **MIT License**. Copyright © 2026 **Kishara Dilshan (iLoveMP4)**. See [LICENSE](./LICENSE) for full details.
